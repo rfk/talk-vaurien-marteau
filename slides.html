@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=1024, user-scalable=no">
 
-  <title>Testing for Graceful Failure with Vaurien and MarteauI</title>
+  <title>Testing for Graceful Failure with Vaurien and Marteau</title>
 
   <link rel="stylesheet" href="./resources/deck-js/core/deck.core.css">
   <link rel="stylesheet" href="./resources/deck-js/extensions/hash/deck.hash.css">
@@ -132,9 +132,9 @@
 <section class="slide">
   <h2>Starting Point</h2>
   <ul>
-   <li>You have a web application.</li>
-   <li>You have a proper deployment setup.</li>
-   <li>You are confident that it <i>works</i>.</li>
+   <li>You have a web application</li>
+   <li>You have a proper deployment setup</li>
+   <li>You are confident that it <i>works</i></li>
    <li class="slide">Now...what happens when it starts to break?</li>
   </ul>
 </section>
@@ -147,9 +147,6 @@
    <ul><li>Firefox Sync Server</li></ul>
    <ul><li>Firefox Marketplace</li></ul>
    <ul><li>A bunch more in the pipe</li></ul>
-   <li>Going to show some tools we use:</li>
-   <ul><li>Marteau</li>
-       <li>Vaurien</li>
    </ul>
  </ul>
 </section>
@@ -162,7 +159,7 @@
 
 
 <section class="slide">
-  <h1>How do you<br/>test for this?</h1>
+  <h1>How do you<br/>find these bugs?</h1>
 </section>
 
 
@@ -206,17 +203,28 @@
 
 
 <section class="slide">
-  <h1>(1) Deploy it</h1>
+  <h1>1) Deploy it</h1>
+</section>
+
+
+<section class="slide" id="pias-deployit-slide">
+  <div id="pias-deployit-player"></div>
+  <script type="text/javascript" src="./resources/pias-deployit.js"></script>
+  <script type="text/javascript">
+      $(function() {
+          onEnterSlide("#pias-deployit-slide", function() {
+              var player = new PIAS.Player($("#pias-deployit-player"))
+              player.play(window.pias_deployit_data, function() {
+                  player.destroy();
+              });
+          });
+      });
+    </script>
 </section>
 
 
 <section class="slide">
-  <p>Demo interaction with FF Sync Server</p>
-</section>
-
-
-<section class="slide">
-  <h1>(2) Stress it</h1>
+  <h1>2) Stress it</h1>
 </section>
 
 
@@ -229,29 +237,45 @@
   <h2>Marteau is:</h2>
   <ul>
     <li>A front-end for FunkLoad:</li>
-    <ul><li>Creates worker nodes in AWS.</li>
-        <li>Manages job queue.</li>
-        <li>Generates and saves reports.</li>
+    <ul><li>Create worker nodes in AWS</li>
+        <li>Manage job queue</li>
+        <li>Generate and save reports</li>
     </ul>
-    <li>French for "hammer".</li>
+    <li>French for "hammer"</li>
   </ul>
 </section>
 
 
 <section class="slide">
-  <h2>Writing FunkLoad Tests</h2>
-  <p>interactive demo of writing the tests, running them from the console</p>
+  <h1>FunkLoad</h1>
 </section>
 
 
 <section class="slide">
-  <h2>Using the Web Interface</h2>
-  <p>(open new window)</p>
+  <h2>FunkLoad</h2>
+  <p>XXX TODO interactive demo of writing the tests, running them from the console</p>
 </section>
 
 
 <section class="slide">
-  <h1>(3) Break it</h1>
+  <h1>Marteau</h1>
+</section>
+
+
+<section class="slide">
+  <h2>Marteau</h2>
+  <p><a href="./resources/marteau-snapshot/index.html" target="_blank">(opens in new tab)</a></p>
+</section>
+
+
+<section class="slide">
+  <h2>Marteau</h2>
+  <p>XXX TODO interactive demo of setting the .marteau.yml file, submitting from the command-line</p>
+</section>
+
+
+<section class="slide">
+  <h1>3) Break it</h1>
 </section>
 
 
@@ -264,11 +288,11 @@
   <h2>Vaurien is:</h2>
   <ul>
     <li>A misbehaving TCP proxy:</li>
-    <ul><li>Drops connections, delays responses, returns garbage.</li>
-        <li>Speaks several common protocols, badly.</li>
-        <li>Easily extensible for your needs.</li>
+    <ul><li>Delays responses, drops connections, returns garbage</li>
+        <li>Speaks several common protocols (badly)</li>
+        <li>Easily extensible for your needs</li>
     </ul>
-    <li>French for "rapscallion".</li>
+    <li>French for "rapscallion"</li>
   </ul>
 </section>
 
@@ -313,9 +337,9 @@
 <section class="slide">
   <h2>loads is:</h2>
   <ul><li>A better FunkLoad:</li>
-      <ul><li>Easier to write tests.</li>
-          <li>Gevented for more concurrency.</li>
-          <li>More real-time feedback, stats, etc.</li>
+      <ul><li>Easier to write tests</li>
+          <li>Much more concurrency per node</li>
+          <li>More real-time feedback, stats, etc</li>
       </ul>
       <li>Not ready yet, but stay tuned!</li>
       <li>Not French for anything AFAICT...</li>
@@ -330,16 +354,21 @@
 
 <section class="slide">
 <h2>Take Home Messages:</h2>
-<ul><li>Where does your app interact with the outside world?</li>
-    <li>What happens when these things fail?</li>
+<ul><li>How does your app interact with the outside world?</li>
+    <li>What happens when the outside world misbehaves?</li>
+    <li>How can you simulate that under controlled conditions?</li>
+    <li class="slide">Come hack with us!</li>
 </ul>
 </section>
 
 
 <section class="slide">
+  <h1>Thanks</h1>
+</section>
+
+
+<section class="slide">
   <h2>Thanks</h2>
-  <p>&nbsp;</p>
-  <p>Thanks to my colleagues, particularly:</p>
   <ul>
    <li>Tarek Ziade</li>
    <li>Alexis Metaireau</li>
@@ -352,12 +381,12 @@
   <h2>More Info</h2>
   <div style="text-align: center">
   <p>ryan@rfk.id.au</p>
-  <p>@rfkelly</p>
   <br /><br />
   <p>https://github.com/rfk/talk-vaurien-marteau</p>
   <br /><br />
-  <p>http://vaurien.readthedocs.org</p>
+  <p>http://funkload.nuxeo.org/</p>
   <p>http://marteau.readthedocs.org</p>
+  <p>http://vaurien.readthedocs.org</p>
   <p>http://loads.readthedocs.org</p>
   </div>
 </section>
