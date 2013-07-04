@@ -219,7 +219,7 @@
               });
           });
       });
-    </script>
+  </script>
 </section>
 
 
@@ -251,9 +251,25 @@
 </section>
 
 
+<section class="slide" id="pias-funkload-slide">
+  <div id="pias-funkload-player"></div>
+  <script type="text/javascript" src="./resources/pias-funkload.js"></script>
+  <script type="text/javascript">
+      $(function() {
+          onEnterSlide("#pias-funkload-slide", function() {
+              var player = new PIAS.Player($("#pias-funkload-player"))
+              player.play(window.pias_funkload_data, function() {
+                  player.destroy();
+              });
+          });
+      });
+  </script>
+</section>
+
+
 <section class="slide">
-  <h2>FunkLoad</h2>
-  <p>XXX TODO interactive demo of writing the tests, running them from the console</p>
+  <h2>FunkLoad Report</h2>
+  <p><a href="./resources/funkload-report/index.html" target="_blank">(opens in new tab)</a></p>
 </section>
 
 
@@ -268,9 +284,19 @@
 </section>
 
 
-<section class="slide">
-  <h2>Marteau</h2>
-  <p>XXX TODO interactive demo of setting the .marteau.yml file, submitting from the command-line</p>
+<section class="slide" id="pias-marteau-slide">
+  <div id="pias-marteau-player"></div>
+  <script type="text/javascript" src="./resources/pias-marteau.js"></script>
+  <script type="text/javascript">
+      $(function() {
+          onEnterSlide("#pias-marteau-slide", function() {
+              var player = new PIAS.Player($("#pias-marteau-player"))
+              player.play(window.pias_marteau_data, function() {
+                  player.destroy();
+              });
+          });
+      });
+  </script>
 </section>
 
 
@@ -297,10 +323,19 @@
 </section>
 
 
-<section class="slide">
-  <p>Run a vaurien proxy, then interact with the webservice as before</p>
-  <p>Tear it down, set up some failing behaviour, show it failing</p>
-  <p>Show that we can control it via HTTP API</p>
+<section class="slide" id="pias-vaurien-slide">
+  <div id="pias-vaurien-player"></div>
+  <script type="text/javascript" src="./resources/pias-vaurien.js"></script>
+  <script type="text/javascript">
+      $(function() {
+          onEnterSlide("#pias-vaurien-slide", function() {
+              var player = new PIAS.Player($("#pias-vaurien-player"))
+              player.play(window.pias_vaurien_data, function() {
+                  player.destroy();
+              });
+          });
+      });
+  </script>
 </section>
 
 
