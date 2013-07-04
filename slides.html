@@ -112,41 +112,15 @@
       }
       setTimeout(updateShowTimers, 5 * 1000);
   }
-
-  var writePIASSlide = function(id, title, rtStart, rtEnd) {
-      document.write('<section class="slide" id="pias-' + id + '-slide">');
-      if(title) {
-          document.write('<h2>' + title + '</h2>');
-      }
-      document.write('<div id="pias-' + id + '-player"></div>');
-      document.write('<scr' + 'ipt type="text/javascript" src="./resources/pias-' + id + '.js"></scr' + 'ipt>');
-      document.write('<scr' + 'ipt type="text/javascript">');
-      $(function() {
-          onEnterSlide("#pias-" + id + "-slide", function() {
-              var player = new PIAS.Player($("#pias-" + id + "-player"))
-              var varname = "pias_" + id + "_data";
-              while(varname != varname.replace("-", "_")) {
-                  varname = varname.replace("-", "_");
-              }
-              player.play(window[varname], function() {
-                  player.destroy();
-              });
-          });
-      });
-      document.write('</scr' + 'ipt>');
-      if(rtStart && rtEnd) {
-          document.write('<div class="run-timer" id="runtime-' + rtStart + '-' + rtEnd + '"> ');
-          document.write('</div>');
-      }
-      document.write('</section>');
-  }
   </script>
 
 </head>
 <body class="deck-container">
 
+
 <section class="slide" id="title">
-  <h1>Testing for Graceful Failure<br />with Vaurien and Marteau</h1>  
+  <h2>Testing for Graceful Failure with</h2>
+  <h1>Vaurien &amp; Marteau</h1>
 </section>
 
 
@@ -156,48 +130,128 @@
 
 
 <section class="slide">
-  <h2>What do I know anyway?</h2>
+  <h2>Starting Point</h2>
+  <ul>
+   <li>You have a web application.</li>
+   <li>You have a proper deployment setup.</li>
+   <li>You are confident that it <i>works</i>.</li>
+   <li class="slide">Now...what happens when it starts to break?</li>
+  </ul>
+</section>
+
+
+<section class="slide">
+ <h2>What do I know anyway?</h2>
  <ul>
    <li>Mozilla Services</li>
    <ul><li>Firefox Sync Server</li></ul>
-   <li>Going to show the tools we use:</li>
-   <ul><li>Vaurien</li>
-       <li>Marteau</li>
+   <ul><li>Firefox Marketplace</li></ul>
+   <ul><li>A bunch more in the pipe</li></ul>
+   <li>Going to show some tools we use:</li>
+   <ul><li>Marteau</li>
+       <li>Vaurien</li>
    </ul>
-   <li>I'm an enthusiast, not an expert</li>
  </ul>
 </section>
 
 
 <section class="slide">
-  <h2>Some Real-Life Bugs</h2>
-  <p>The out-of-order deletion bug</p>
+  <h2>A Real-Life Bug</h2>
+  <img src="./resources/Diagram1.svg" >
 </section>
 
 
 <section class="slide">
-  <h2>Some Real-Life Bugs</h2>
-  <p>The worker-pool-exhaustion bug</p>
+  <h1>How do you<br/>test for this?</h1>
 </section>
 
 
 <section class="slide">
-  <h1>How do you test for this?</h1>
+  <h1>Do it Live!</h1>
+  <img src="./resources/do-it-live.jpg" />
 </section>
 
 
 <section class="slide">
-  <h1>Do it live!</h1>
+  <h2>Doing it live:</h2>
+  <ol>
+    <li>Deploy it</li>
+    <li>Stress it</li>
+    <li>Break it</li>
+  </ol>
 </section>
 
 
 <section class="slide">
-  <h2>Assumptions</h2>
+  <h2>Doing it live:</h2>
+  <ol>
+    <li>Deploy it</li>
+    <li>Stress it</li>
+    <li>Break it</li>
+    <li>???</li>
+  </ol>
+</section>
+
+
+<section class="slide">
+  <h2>Doing it live:</h2>
+  <ol>
+    <li>Deploy it</li>
+    <li>Stress it</li>
+    <li>Break it</li>
+    <li>???</li>
+    <li>Profit</li>
+  </ol>
+</section>
+
+
+<section class="slide">
+  <h1>(1) Deploy it</h1>
+</section>
+
+
+<section class="slide">
+  <p>Demo interaction with FF Sync Server</p>
+</section>
+
+
+<section class="slide">
+  <h1>(2) Stress it</h1>
+</section>
+
+
+<section class="slide">
+  <h1>Marteau</h1>
+</section>
+
+
+<section class="slide">
+  <h2>Marteau is:</h2>
   <ul>
-   <li>Deployment is trivial</li>
-   <li>You have functional tests</li>
-   <li>Things actually work</li>
+    <li>A front-end for FunkLoad:</li>
+    <ul><li>Creates worker nodes in AWS.</li>
+        <li>Manages job queue.</li>
+        <li>Generates and saves reports.</li>
+    </ul>
+    <li>French for "hammer".</li>
   </ul>
+</section>
+
+
+<section class="slide">
+  <h2>Writing FunkLoad Tests</h2>
+  <p>interactive demo of writing the tests, running them from the console</p>
+</section>
+
+
+<section class="slide">
+  <h2>Using the Web Interface</h2>
+  <p>(open new window)</p>
+</section>
+
+
+<section class="slide">
+  <h1>(3) Break it</h1>
 </section>
 
 
@@ -207,17 +261,24 @@
 
 
 <section class="slide">
-  <p>Script Test Run against some service, then show how to throw vaurien into the mix</p>
+  <h2>Vaurien is:</h2>
+  <ul>
+    <li>A misbehaving TCP proxy:</li>
+    <ul><li>Drops connections, delays responses, returns garbage.</li>
+        <li>Speaks several common protocols, badly.</li>
+        <li>Easily extensible for your needs.</li>
+    </ul>
+    <li>French for "rapscallion".</li>
+  </ul>
 </section>
 
 
 <section class="slide">
-  <p>Explain the basic paramters, settings, etc</p>
+  <p>Run a vaurien proxy, then interact with the webservice as before</p>
+  <p>Tear it down, set up some failing behaviour, show it failing</p>
+  <p>Show that we can control it via HTTP API</p>
 </section>
 
-<section class="slide">
-  <p>Script a functional test, using webapi to enable/disable specific behaviours</p>
-</section>
 
 <section class="slide">
   <p>Example of using it in a unittest, via in-process control</p>
@@ -225,32 +286,53 @@
 
 
 <section class="slide">
-  <h1>Marteau</h1>
-</section>
-
-<section class="slide">
-  <p>An easy-to-use frontend for FunkLoad; designed for AWS</p>
-</section>
-
-<section class="slide">
-  <p>Show how to use it - video?</p>
-</section>
-
-<section class="slide">
   <p>Combine the two approaches: give 5% errors on your database, see if only 5% of your requests give an error</p>
 </section>
 
-<section class="slide">
-  <h1>loads Up</h1>
-</section>
 
 <section class="slide">
-  <p>we're building a replacement, designed to push more load.  stay tuned</p>
+  <h1>one more thing...</h1>
 </section>
 
 
+<section class="slide">
+  <h1>FunkLoad</h1>
 </section>
-<h1>Summing up</h1>
+
+
+<section class="slide">
+  <h1 style="text-decoration: line-through">FunkLoad</h1>
+</section>
+
+
+<section class="slide">
+  <h1>loads</h1>
+</section>
+
+
+<section class="slide">
+  <h2>loads is:</h2>
+  <ul><li>A better FunkLoad:</li>
+      <ul><li>Easier to write tests.</li>
+          <li>Gevented for more concurrency.</li>
+          <li>More real-time feedback, stats, etc.</li>
+      </ul>
+      <li>Not ready yet, but stay tuned!</li>
+      <li>Not French for anything AFAICT...</li>
+  </ul>
+</section>
+
+
+<section class="slide">
+<h1>Summing Up</h1>
+</section>
+
+
+<section class="slide">
+<h2>Take Home Messages:</h2>
+<ul><li>Where does your app interact with the outside world?</li>
+    <li>What happens when these things fail?</li>
+</ul>
 </section>
 
 
@@ -276,6 +358,7 @@
   <br /><br />
   <p>http://vaurien.readthedocs.org</p>
   <p>http://marteau.readthedocs.org</p>
+  <p>http://loads.readthedocs.org</p>
   </div>
 </section>
 
