@@ -4,7 +4,7 @@ var pias_vaurien_data = {
       "act": "OPEN", 
       "size": [
         60, 
-        16
+        10
       ], 
       "term": "529a0e7f517f48c685544ba58062ac75"
     }, 
