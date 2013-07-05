@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="./resources/playitagainsam-js/playitagainsam.css">
 
   <style type="text/css">
-  body .pias-container {
+  body .pias-container iframe {
     margin: 1em;
   }
   .deck-container table {
@@ -29,8 +29,8 @@
   }
   .deck-container div.run-timer {
     position: absolute;
-    bottom: 0px;
-    left: 0px;
+    top: 0px;
+    right: 0px;
     background: black;
     height: 5px;
     width: 20px;
@@ -126,6 +126,7 @@
 
 <section class="slide">
   <h1>Testing!</h1>
+  <div class="run-timer" id="runtime-10-60"></div>
 </section>
 
 
@@ -133,10 +134,22 @@
   <h2>Starting Point</h2>
   <ul>
    <li>You have a web application</li>
-   <li>You have a proper deployment setup</li>
    <li>You are confident that it <i>works</i></li>
-   <li class="slide">Now...what happens when it starts to break?</li>
+   <li>You have a solid deployment setup</li>
   </ul>
+  <div class="run-timer" id="runtime-10-120"></div>
+</section>
+
+
+<section class="slide">
+  <h2>Starting Point</h2>
+  <ul>
+   <li>You have a web application</li>
+   <li>You are confident that it <i>works</i></li>
+   <li>You have a solid deployment setup</li>
+   <li>Now...what happens when things start to break?</li>
+  </ul>
+  <div class="run-timer" id="runtime-10-120"></div>
 </section>
 
 
@@ -144,17 +157,20 @@
  <h2>What do I know anyway?</h2>
  <ul>
    <li>Mozilla Services</li>
-   <ul><li>Firefox Sync Server</li></ul>
-   <ul><li>Firefox Marketplace</li></ul>
-   <ul><li>A bunch more in the pipe</li></ul>
-   </ul>
+       <ul><li>Firefox Sync Server</li>
+           <li>Firefox Marketplace</li>
+           <li>A bunch more in the pipe</li>
+       </ul>
+   <li>Organic process and tooling</li>
  </ul>
+  <div class="run-timer" id="runtime-120-180"></div>
 </section>
 
 
 <section class="slide">
   <h2>A Real-Life Bug</h2>
   <img src="./resources/Diagram1.svg" >
+  <div class="run-timer" id="runtime-120-180"></div>
 </section>
 
 
@@ -164,8 +180,8 @@
 
 
 <section class="slide">
-  <h1>Do it Live!</h1>
-  <img src="./resources/do-it-live.jpg" />
+  <img style="padding: 1em;" src="./resources/do-it-live.jpg" />
+  <p style="width: 100%; text-align: center; font-size: 7em">Do it Live!</p>
 </section>
 
 
@@ -176,6 +192,7 @@
     <li>Stress it</li>
     <li>Break it</li>
   </ol>
+  <div class="run-timer" id="runtime-180-300"></div>
 </section>
 
 
@@ -187,6 +204,7 @@
     <li>Break it</li>
     <li>???</li>
   </ol>
+  <div class="run-timer" id="runtime-180-300"></div>
 </section>
 
 
@@ -199,11 +217,12 @@
     <li>???</li>
     <li>Profit</li>
   </ol>
+  <div class="run-timer" id="runtime-180-300"></div>
 </section>
 
 
 <section class="slide">
-  <h1>1) Deploy it</h1>
+  <h1>Deploy it</h1>
 </section>
 
 
@@ -220,11 +239,12 @@
           });
       });
   </script>
+  <div class="run-timer" id="runtime-180-300"></div>
 </section>
 
 
 <section class="slide">
-  <h1>2) Stress it</h1>
+  <h1>Stress it</h1>
 </section>
 
 
@@ -246,12 +266,14 @@
           });
       });
   </script>
+  <div class="run-timer" id="runtime-300-600"></div>
 </section>
 
 
 <section class="slide">
   <h2>FunkLoad Report</h2>
   <p><a href="./resources/funkload-report/index.html" target="_blank">(opens in new tab)</a></p>
+  <div class="run-timer" id="runtime-300-600"></div>
 </section>
 
 
@@ -271,6 +293,7 @@
     <li>French for "hammer"</li>
     <li class="slide"><a href="./resources/marteau-snapshot/index.html" target="_blank">(visible in this new tab...)</a></li>
   </ul>
+  <div class="run-timer" id="runtime-600-900"></div>
 </section>
 
 
@@ -287,11 +310,13 @@
           });
       });
   </script>
+  <div class="run-timer" id="runtime-600-900"></div>
 </section>
 
 
 <section class="slide">
-  <h1>3) Break it</h1>
+  <h1>Break it</h1>
+  <div class="run-timer" id="runtime-600-900"></div>
 </section>
 
 
@@ -304,12 +329,13 @@
   <h2>Vaurien is:</h2>
   <ul>
     <li>A misbehaving TCP proxy:</li>
-    <ul><li>Delays responses, drops connections, returns garbage</li>
-        <li>Speaks several common protocols (badly)</li>
+    <ul><li>Behaviours: delay, hang, error</li>
+        <li>Protocols: raw tcp, http, memcached, mysql, ...</li>
         <li>Easily extensible for your needs</li>
     </ul>
     <li>French for "rapscallion"</li>
   </ul>
+  <div class="run-timer" id="runtime-900-960"></div>
 </section>
 
 
@@ -326,6 +352,7 @@
           });
       });
   </script>
+  <div class="run-timer" id="runtime-900-1100"></div>
 </section>
 
 
@@ -334,6 +361,7 @@
   <ul><li>Integrate into functional tests, for specific error sequences</li>
       <li>Combine with loadtests to check for cascading failures</li>
   </ul>
+  <div class="run-timer" id="runtime-900-1100"></div>
 </section>
 
 
@@ -349,6 +377,7 @@
     <li>How can you simulate that under controlled conditions?</li>
     <li class="slide">Come hack with us!</li>
 </ul>
+  <div class="run-timer" id="runtime-1100-1200"></div>
 </section>
 
 
@@ -359,16 +388,19 @@
 
 <section class="slide">
   <h1>FunkLoad</h1>
+  <div class="run-timer" id="runtime-1100-1200"></div>
 </section>
 
 
 <section class="slide">
   <h1 style="text-decoration: line-through">FunkLoad</h1>
+  <div class="run-timer" id="runtime-1100-1200"></div>
 </section>
 
 
 <section class="slide">
   <h1>loads</h1>
+  <div class="run-timer" id="runtime-1100-1200"></div>
 </section>
 
 
@@ -382,6 +414,7 @@
       <li>Not ready yet, but stay tuned!</li>
       <li>Not French for anything AFAICT...</li>
   </ul>
+  <div class="run-timer" id="runtime-1100-1200"></div>
 </section>
 
 
