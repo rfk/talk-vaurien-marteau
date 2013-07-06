@@ -2,15 +2,15 @@
 @import url("swiss.css");
 
 .deck-container {
-  font-size: 2em;
+  font-size: 1.9em;
 }
 
 .deck-container .slide h1 {
-  font-size: 3.8em;
+  font-size: 3.6em;
 }
 
 .deck-container .slide h2 {
-  font-size: 2.2em;
+  font-size: 2em;
   color: #c00;
   border-bottom-color: #999;
 }
